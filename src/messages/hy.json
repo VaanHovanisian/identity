@@ -1,0 +1,21 @@
+{
+    "HeaderImg":{
+        "title": "ԻՆՔՆՈՒԹՅԱՆ ՍԱՐԴԱՐԱՊԱՏՈՒՄ ՀԱՂԹԱՆԱԿՆ ԱՅԼԸՆՏՐԱՆՔ ՉՈՒՆԻ",
+        "buttonText": "ԴԻՏԵԼ ՏԵՍԱՆՅՈՒԹԸ"
+    },
+    "Header":{
+        "navItem1": "Տեսադարան",
+        "navItem1Content1": "Բոլորը", 
+        "navItem1Content2": "Մարզեր", 
+        "navItem1Content3": "Ազգագրություն",
+        "navItem2": "Հիմնադրամ",
+        "navItem3":  "Կապ",
+        "headerButton": "ՆՎԻՐԱԲԵՐԵԼ"
+    },
+    "Logo":{
+        "title": "ԻՆՔՆՈՒԹՅՈՒՆ"
+    },
+    "Most Viewed":{
+        "title": "ԱՄԵՆԱՇԱՏ ԴԻՏՎԱԾ"
+    }
+}

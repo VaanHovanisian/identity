@@ -1,0 +1,24 @@
+{
+    "HeaderImg":{
+        "title": "The Sardarapat of Identity: Victory Has No Alternative",
+        "buttonText": "WATCH THE VIDEO"
+    },
+    "Header":{
+        "navItem1": "Video gallery",
+        "navItem1Content1": "All", 
+        "navItem1Content2": "Regions", 
+        "navItem1Content3": "Ethnography",
+        "navItem2": "Foundation",
+        "navItem3":  "Contact",
+        "headerButton": "DONATE"
+    },
+    "Logo":{
+        "title": "IDENTITY"
+    },
+    "Most Viewed":{
+        "title": "Most Viewed"
+    },
+    "Map":{
+        "title": "ՃԱՆԱՉԵՆՔ ՀԱՅԱՍՏԱՆԸ"
+    }
+}
