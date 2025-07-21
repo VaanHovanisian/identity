@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Container } from "./ui";
+import { Container, Title } from "./ui";
 import { AboutProvince } from "./about-province";
 import { options } from "@/constants/map";
 import { useActiveProvince } from "@/hooks/active-province";
@@ -19,15 +19,12 @@ export const Map: React.FC<Props> = ({ className }) => {
   const { data } = useAboutProvince();
 
   return (
-    <Container
-      className={cn(
-        "flex flex-col justify-center items-center gap-10",
-        className
-      )}
-    >
-      <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[125%] text-center text-primary font-semibold">
-        ՃԱՆԱՉԵՆՔ ՀԱՅԱՍՏԱՆԸ
-      </h2>
+    <Container className={cn("flex flex-col justify-center gap-10", className)}>
+      <Title
+        size="m"
+        text="ՃԱՆԱՉԵՆՔ ՀԱՅԱՍՏԱՆԸ"
+        className="text-center text-primary md:text-left text-4xl md:text-5xl"
+      />
 
       <MapButtons
         selectedProvince={selectedProvince}
@@ -64,13 +61,16 @@ export const Map: React.FC<Props> = ({ className }) => {
 
         <div className="w-full lg:w-1/2">
           <AboutProvince
-            name={data?.[0]?.provinceName as string}
-            monumentsCount={data?.[0]?.monuments as number}
-            area={data?.[0]?.area as number}
-            population={data?.[0]?.population as number}
-            cities={data?.[0]?.cities as number}
-            villages={data?.[0]?.villages as number}
-            shortAbout={data?.[0]?.about as string}
+            name={"ՀՀ ԵՎ ԱՐՑԱԽ"}
+            monumentsCount={24}
+            monumentsCountText="պատմամշակութային կոթող"
+            area={2704}
+            population={103589}
+            cities={5}
+            villages={57}
+            shortAbout={
+              "Տավուշի մարզը գտնվում է։ Ընդգրկում է Իջևանի, Տավուշի, Նոյեմբերյանի, Դիլիջանի տարածաշրջանները: Մարզը հյուսիսում սահմանակից է "
+            }
           />
         </div>
       </div>

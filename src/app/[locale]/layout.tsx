@@ -1,4 +1,4 @@
-import { Montserrat, Bebas_Neue, Oswald } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 import { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -7,25 +7,67 @@ import { routing } from "@/i18n/routing";
 import { getMessages } from "@/lib/get-messages";
 
 export const metadata: Metadata = {
-  title: "Identity",
+  title: "ԻՆՔՆՈՒԹՅՈՒՆ",
 };
 
-const montserrat = Montserrat({
-  variable: "--font-family",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-const bebasNeue = Bebas_Neue({
-  variable: "--second-family",
-  display: "swap",
-  weight: "400",
-});
-
-const oswald = Oswald({
-  variable: "--third-family",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
+const myFont = localFont({
+  src: [
+    {
+      path: "../fonts/Montserrat-Light.woff",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-SemiBold.woff",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Arm-Hmks-Bebas-Neue-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
 });
 
 export default async function Layout({
@@ -44,11 +86,8 @@ export default async function Layout({
   const messages = await getMessages(locale);
 
   return (
-    <html
-      lang={locale}
-      className={`${bebasNeue.variable} ${montserrat.variable} ${oswald.variable}`}
-    >
-      <body className={oswald.className}>
+    <html lang={locale}>
+      <body className={myFont.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

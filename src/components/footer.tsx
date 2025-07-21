@@ -43,9 +43,9 @@ export const Footer: React.FC<Props> = ({ className }) => {
         className
       )}
     >
-      <Container className="max-w-[1440px] flex flex-wrap justify-center gap-6 mb-5">
-        <div className="w-full lg:w-[378px] text-center lg:text-start space-y-5">
-          <Logo color="#781214" textColor="#781214" />
+      <Container className="max-w-[1740px] flex flex-wrap justify-center gap-6 mb-5">
+        <div className="w-full max-w-[270px] text-center lg:text-start space-y-5">
+          <Logo />
           <p className="text-xs leading-[133%] tracking-[0.04em]">
             Կարճ ինֆո այստեղ։ Eu egestas imperdiet consectetur egestas ante
             aliquet posuere vitae.

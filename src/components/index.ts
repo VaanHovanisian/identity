@@ -21,3 +21,4 @@ export { Supporters } from "./supporters";
 export { Project } from "./project";
 export { OurTasks } from "./our-tasks";
 export { Topics } from "./topics";
+export { Slide } from "./slide";

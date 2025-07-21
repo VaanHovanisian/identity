@@ -44,7 +44,8 @@ export const Header: React.FC<Props> = ({ className }) => {
       className={cn(
         "w-full font-third-family text-white bg-transparent transition-all duration-300 ease-in-out fixed top-0 left-0 right-0 z-100",
         {
-          "bg-white text-[#781214]": isScrolled,
+          "bg-white text-[#781214] shadow-[0px_7px_9px_1px_rgba(0,_0,_0,_0.3)]":
+            isScrolled,
         },
 
         className
@@ -103,10 +104,10 @@ export const Header: React.FC<Props> = ({ className }) => {
           </li>
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1">
           <div className="lg:hidden relative">
             <button
-              className="cursor-pointer"
+              className="cursor-pointer flex items-center justify-center"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? (

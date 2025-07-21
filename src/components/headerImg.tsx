@@ -15,23 +15,22 @@ export const HeaderImg: React.FC<Props> = (props) => {
   const { className } = props;
   const t = useTranslations("HeaderImg");
   const { data } = useTitle();
-  console.log(data);
 
   return (
     <div
       className={cn(
-        "h-screen mx-auto md:bg-[url(/Img.png)] bg-[url(/header-small-img.png)] bg-cover bg-center flex flex-col",
+        "h-screen mx-auto md:bg-[url(/Img.png)] bg-[url(/header-small-img.png)] bg-cover bg-center mb-[10%] flex flex-col",
         className
       )}
     >
       <div className="flex flex-1 items-center justify-center">
         <div className="flex flex-col items-center mx-auto max-w-[781px] gap-6">
-          <h1 className="font-bebas text-4xl text-white leading-[125%] text-center">
-            {data?.[0]?.title}
+          <h1 className="font-bebas text-[clamp(1.875rem,-0.7813rem+8.5vw,4rem)] text-white leading-[125%] text-center">
+            ԻՆՔՆՈՒԹՅԱՆ ՍԱՐԴԱՐԱՊԱՏՈՒՄ ՀԱՂԹԱՆԱԿՆ ԱՅԼԸՆՏՐԱՆՔ ՉՈՒՆԻ
           </h1>
           <Button
             variant="destructive"
-            className="group flex items-center text-2xl font-medium font-montserrat p-9"
+            className="group cursor-pointer hover:scale-110 flex items-center text-[20px] sm:text-2xl font-medium font-montserrat p-9"
           >
             <Play className="text-[#781214] group-hover:text-white mb-[1.5px]" />
             {t("buttonText")}
