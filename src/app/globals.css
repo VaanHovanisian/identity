@@ -5,7 +5,10 @@ html {
 }
 @custom-variant dark (&:is(.dark *));
 
-
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: #781214;
+}
 
 .custom-scroll::-webkit-scrollbar {
   width: 2px;
@@ -19,7 +22,6 @@ html {
   background: #781214;
   border-radius: 4px;
 }
-
 
 @theme inline {
   --color-background: var(--background);
@@ -64,8 +66,8 @@ html {
 
 :root {
   --font-family: "Oswald", sans-serif;
-  --second-family:'Montserrat', sans-serif;
-  --third-family:  "Arm Hmk's Bebas Neue", sans-serif;
+  --second-family: "Montserrat", sans-serif;
+  --third-family: "Arm Hmk's Bebas Neue", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

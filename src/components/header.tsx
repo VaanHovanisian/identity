@@ -56,7 +56,7 @@ export const Header: React.FC<Props> = ({ className }) => {
           "max-w-[1680px] w-full py-6 flex items-center justify-between"
         )}
       >
-        <Logo className="z-101 relative" />
+        <Logo isShow className="z-101 relative" />
 
         <ul
           className={cn(

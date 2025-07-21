@@ -4,10 +4,11 @@ import Link from "next/link";
 
 interface Props {
   className?: string;
+  isShow?: boolean;
 }
 
 export const Logo: React.FC<Props> = (props) => {
-  const { className } = props;
+  const { className, isShow } = props;
   return (
     <Link href={"/"} className={cn("flex items-center gap-4", className)}>
       <svg
@@ -38,7 +39,9 @@ export const Logo: React.FC<Props> = (props) => {
         />
       </svg>
       <span
-        className="md:block hidden text-inherit font-third-family text-[24px] font-bold"
+        className={cn("text-inherit font-third-family text-[24px] font-bold", {
+          "md:block hidden ": isShow,
+        })}
       >
         ԻՆՔՆՈՒԹՅՈՒՆ
       </span>

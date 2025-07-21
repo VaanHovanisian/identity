@@ -1,7 +1,13 @@
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button, Title } from "./ui";
 import { ArrowRight, ChartPie, MapPinned, UserRound } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import Link from "next/link";
 
 interface Props {
   className?: string;
@@ -31,7 +37,7 @@ export const AboutProvince: React.FC<Props> = (props) => {
   const [showMore, setShowMore] = React.useState(false);
 
   return (
-    <div className={cn("max-w-[708px] space-y-4", className)}>
+    <div className={cn("space-y-4", className)}>
       <Title
         size={"m"}
         text={name}
@@ -75,7 +81,7 @@ export const AboutProvince: React.FC<Props> = (props) => {
           </span>
         </div>
       </div>
-      <div className={cn("flex gap-4 items-start")}>
+      <div className={cn("flex flex-col gap-4 items-start")}>
         <p className="leading-[150%]">
           {name} մարզը գտնվում է։ {showMore ? shortAbout : " ... "}
           <button
@@ -85,11 +91,48 @@ export const AboutProvince: React.FC<Props> = (props) => {
             {showMore ? "Փակել" : "Իմանալ ավելին"}
           </button>
         </p>
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={30}
+          loop={true}
+          navigation={true}
+          breakpoints={{
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
+          modules={[Navigation]}
+          className="mySwiper h-full w-full"
+        >
+          {[...Array(10)].map((_, i) => (
+            <SwiperSlide key={i}>
+              <video
+                className="tab__video h-full"
+                poster="/sliderImg1.png"
+                controls
+                preload="none"
+              >
+                <source
+                  src="/ArtashAsatryan-Txuremtxur-1.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
+
       <Button
-        className="group border border-primary flex items-center "
+        className="group relative border border-primary flex items-center"
         variant={"destructive"}
       >
+        <Link className="absolute inset-0" href="/video-section" />
         ԱՆՑՆԵԼ ՏԵՍԱԴԱՐԱՆ{" "}
         <ArrowRight className="text-[#781214] group-hover:text-white mb-[1.5px]" />
       </Button>

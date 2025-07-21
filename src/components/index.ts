@@ -1,3 +1,4 @@
+export { ModalVideo } from "./modal-video";
 export { Header } from "./header";
 export { Logo } from "./logo";
 export { MostView } from "./most-view";

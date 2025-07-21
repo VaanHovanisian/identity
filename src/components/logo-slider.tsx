@@ -32,7 +32,7 @@ export const LogoSlider: React.FC<Props> = (props) => {
     >
       {[...Array(10)].map((_, i) => (
         <SwiperSlide key={i}>
-          <div className=" text-white text-center py-16 rounded-lg">
+          <div className=" text-white text-center py-3 rounded-lg">
             <img src="/logoSlide.png" alt="" />
           </div>
         </SwiperSlide>
