@@ -27,16 +27,16 @@ export const ContactUs: React.FC<Props> = (props) => {
   const { className } = props;
   return (
     <div className={cn("max-w-[1920px] mx-auto", className)}>
-      <div className="bg-[url(/contact-us.png)] bg-cover h-[240px]">
-        <div className="max-w-[1680px] mx-auto text-start pt-17">
+      <div className="bg-[url(/contact-us.png)] bg-center bg-cover h-[240px] pt-28 pb-10 bg-no-repeat flex items-center">
+        <div className="max-w-[1680px] mx-auto w-full px-4 text-start pt-17">
           <Title
-            className="font-bebas leading-[125%] text-white "
-            size={"l"}
+            className="font-bebas leading-[125%] text-white"
+            size={"n"}
             text={"ԿԱՊ"}
           />
         </div>
       </div>
-      <Container className="p-16 flex flex-wrap gap-6 justify-center">
+      <Container className="p-4 flex flex-wrap gap-6 justify-center">
         <Card className="w-full max-w-sm">
           <CardContent>
             <form>
@@ -103,7 +103,7 @@ export const ContactUs: React.FC<Props> = (props) => {
                   <a>RA, Yerevan, Road 00</a>
                 </li>
                 <li className="flex gap-3">
-                  <span className="inline-flex items-center justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
+                  <span className="inline-flex items-center shrink-0 justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
                     <svg
                       width="15"
                       height="17"
@@ -117,7 +117,7 @@ export const ContactUs: React.FC<Props> = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="inline-flex items-center justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
+                  <span className="inline-flex items-center justify-center shrink-0 w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
                     <Instagram
                       className="align-middle"
                       color="#781214"
@@ -125,7 +125,7 @@ export const ContactUs: React.FC<Props> = (props) => {
                       strokeWidth={3}
                     />
                   </span>
-                  <span className="inline-flex items-center justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
+                  <span className="inline-flex items-center shrink-0 justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
                     <Facebook
                       className="align-middle"
                       color="#781214"
@@ -133,7 +133,7 @@ export const ContactUs: React.FC<Props> = (props) => {
                       strokeWidth={3}
                     />
                   </span>
-                  <span className="inline-flex items-center justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
+                  <span className="inline-flex items-center shrink-0 justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
                     <Linkedin
                       className="align-middle"
                       color="#781214"
@@ -141,7 +141,7 @@ export const ContactUs: React.FC<Props> = (props) => {
                       strokeWidth={3}
                     />
                   </span>
-                  <span className="inline-flex items-center justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
+                  <span className="inline-flex items-center shrink-0 justify-center w-[33px] h-[33px] border-[1.5px] border-primary rounded-[3px]">
                     <Youtube
                       className="align-middle"
                       color="#781214"

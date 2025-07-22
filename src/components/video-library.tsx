@@ -22,11 +22,11 @@ export const VideoLibrary: React.FC<Props> = ({ className }) => {
 
   return (
     <div className={cn("max-w-[1920px] mx-auto", className)}>
-      <div className="bg-[url(/videoLibrary.png)] pt-28 pb-10 bg-cover flex items-center">
+      <div className="bg-[url(/videoLibrary.png)] pt-28 pb-10 bg-cover bg-center bg-no-repeat flex items-center">
         <div className="max-w-[1680px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <Title
-            className="font-bebas leading-[125%] text-white text-start"
-            size="l"
+            className="font-bebas leading-[125%] text-white text-center sm:text-start"
+            size="n"
             text="ՏԵՍԱԴԱՐԱՆ"
           />
         </div>

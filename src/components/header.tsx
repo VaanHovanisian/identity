@@ -15,12 +15,19 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import LanguageDropdown from "./language-dropdown";
 import { useWindowScroll } from "react-use";
+import useSWR from "swr";
+import { ApiRouts } from "@/services/constants";
+import { fetcher } from "@/lib/fetcher";
 
 interface Props {
   className?: string;
 }
 
 export const Header: React.FC<Props> = ({ className }) => {
+  const { data: headerData } = useSWR(ApiRouts.HEADER, fetcher);
+  const data = headerData;
+  console.log(data);
+
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 

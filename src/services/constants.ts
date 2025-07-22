@@ -4,4 +4,5 @@ export enum ApiRouts {
   TITLE = "/title",
   MOST_VIEW_TITLE = "/most-view-title",
   UPDATES = "/updates",
+  HEADER = "/globals/header",
 }

@@ -34,9 +34,7 @@ const bankDetails = [
 
 const DonationForm = () => (
   <form className="w-full max-w-[720px] space-y-4">
-    <span className="text-[40px] font-bebas font-semibold block">
-      ԿԱՏԱՐԵԼ ՆՎԻՐԱՏՎՈՒԹՅՈՒՆ
-    </span>
+    <Title text="ԿԱՏԱՐԵԼ ՆՎԻՐԱՏՎՈՒԹՅՈՒՆ" size="n" />
 
     <ul className="flex flex-wrap gap-3">
       {currencies.map((cur) => (
@@ -127,7 +125,7 @@ const DonationForm = () => (
       </p>
     </div>
 
-    <Button className="w-full max-w-[339px] h-[62px] text-[17px] leading-[150%]">
+    <Button className="w-fit py-8 text-[16px] leading-[150%]">
       ԿԱՏԱՐԵԼ ՆՎԻՐԱՏՎՈՒԹՅՈՒՆ
     </Button>
   </form>
@@ -136,16 +134,16 @@ const DonationForm = () => (
 export const Donation: React.FC<Props> = ({ className }) => (
   <div className={cn("max-w-[1920px] mx-auto", className)}>
     <div className="bg-[url(/donation.png)] bg-cover h-[240px]">
-      <div className="max-w-[1680px] mx-auto text-start pt-10 sm:pt-14 lg:pt-20">
+      <div className="max-w-[1680px] mx-auto bg-center bg-cover h-[240px] px-4 pt-28 pb-10 bg-no-repeat flex items-center">
         <Title
-          className="font-bebas leading-[125%] text-white"
-          size="l"
+          className="font-bebas leading-[125%] text-white text-center sm:text-left"
+          size="n"
           text="ՆՎԻՐԱԲԵՐՈՒԹՅՈՒՆ"
         />
       </div>
     </div>
 
-    <Container className="max-w-[1620px] p-6 sm:p-10 lg:p-16 flex flex-col lg:flex-row gap-12 lg:justify-between">
+    <Container className="max-w-[1620px] p-4 sm:p-10 lg:p-16 flex flex-col lg:flex-row gap-12 lg:justify-between">
       <DonationForm />
 
       <ul className="space-y-4 w-full max-w-[620px] text-sm">
