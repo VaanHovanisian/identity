@@ -25,18 +25,14 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   const { data: headerData } = useSWR(ApiRouts.HEADER, fetcher);
-  const data = headerData;
+  const data = headerData ?? {};
   console.log(data);
 
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-
   const t = useTranslations("Header");
-
   const ref = React.useRef(null);
-
   const { y } = useWindowScroll();
-
   React.useEffect(() => {
     if (y > 100) {
       setIsScrolled(true);
@@ -63,7 +59,12 @@ export const Header: React.FC<Props> = ({ className }) => {
           "max-w-[1680px] w-full py-6 flex items-center justify-between"
         )}
       >
-        <Logo isShow className="z-101 relative" />
+        <Logo
+          label={data?.logo?.["logo-label"]}
+          imgUrl={data?.logo?.["logo-image"]?.url}
+          isShow
+          className="z-101 relative"
+        />
 
         <ul
           className={cn(
@@ -81,21 +82,13 @@ export const Header: React.FC<Props> = ({ className }) => {
                 <ChevronDown className="text-inherit" strokeWidth={2} />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href={"/video-section"} className="text-inherit w-full">
-                    {t("navItem1Content1")}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href={"#"} className="text-inherit w-full">
-                    {t("navItem1Content2")}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href={"#"} className="text-inherit w-full">
-                    {t("navItem1Content3")}
-                  </Link>
-                </DropdownMenuItem>
+                {data?.["tesadaran-links"]?.map((el: any) => (
+                  <DropdownMenuItem key={el.id}>
+                    <Link className="w-full" href={el.url}>
+                      {el.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
@@ -131,21 +124,13 @@ export const Header: React.FC<Props> = ({ className }) => {
                       {t("navItem1")} <ChevronDown size={16} />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <DropdownMenuItem>
-                        <Link className="w-full" href={"/video-section"}>
-                          {t("navItem1Content1")}
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Link className="w-full" href={"#"}>
-                          {t("navItem1Content2")}
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Link className="w-full" href={"#"}>
-                          {t("navItem1Content3")}
-                        </Link>
-                      </DropdownMenuItem>
+                      {data?.["tesadaran-links"]?.map((el: any) => (
+                        <DropdownMenuItem key={el.id}>
+                          <Link href={el.url} className="text-inherit w-full">
+                            {el.label}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </li>
@@ -180,9 +165,9 @@ export const Header: React.FC<Props> = ({ className }) => {
                   : "text-white hover:bg-white hover:text-primary border border-primary"
               )}
             >
-              <Link className="w-full" href={"/donation"}>
+              <Link className="w-full" href={data?.["button"]?.url}>
                 {" "}
-                {t("headerButton")}
+                {data?.["button"]?.label}
               </Link>
             </Button>
           </div>

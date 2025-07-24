@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button, Container, Input } from "./ui";
@@ -13,29 +14,23 @@ import {
   Youtube,
 } from "lucide-react";
 import Link from "next/link";
+import useSWR from "swr";
+import { ApiRouts } from "@/services/constants";
+import { fetcher } from "@/lib/fetcher";
 
 interface Props {
   className?: string;
 }
 
-const firstSection = [
-  { name: "Հիմնադրամ", link: "/foundation" },
-  { name: "Մեր Մասին", link: "foundation" },
-  { name: "Խնդիրը", link: "foundation" },
-  { name: "Հոգաբարձուների Խորհուրդ", link: "foundation" },
-  { name: "Թիմը", link: "foundation" },
-  { name: "Աջակիցներ", link: "foundation" },
-  { name: "Նախագիծ", link: "foundation" },
-];
-
-const secondSection = [
-  { name: "Տեսադարան", link: "/video-section" },
-  { name: "Բոլորը", link: "/video-section" },
-  { name: "Մարզեր", link: "/video-section" },
-  { name: "Ազգագրություն", link: "/video-section" },
-];
-
 export const Footer: React.FC<Props> = ({ className }) => {
+  const { data: footerData } = useSWR(ApiRouts.FOOTER, fetcher);
+  const data = footerData ?? {};
+  console.log(data);
+
+  const firstSection = data?.["himnadram-links"] ?? [];
+  const secondSection = data?.["tesadaran-links"] ?? [];
+  console.log(firstSection);
+
   return (
     <div
       className={cn(
@@ -45,25 +40,26 @@ export const Footer: React.FC<Props> = ({ className }) => {
     >
       <Container className="max-w-[1740px] max-lg:flex-wrap max-lg:justify-center flex justify-between gap-6 mb-5">
         <div className="w-full max-w-[270px] text-center lg:text-start space-y-5">
-          <Logo className="text-primary" />
+          <Logo className="text-primary"
+            label={data?.logo?.["logo-label"]}
+            imgUrl={data?.logo?.["logo-image"]?.url}
+          />
           <p className="text-xs leading-[133%] tracking-[0.04em]">
-            Կարճ ինֆո այստեղ։ Eu egestas imperdiet consectetur egestas ante
-            aliquet posuere vitae.
+            {data?.["first-text"]}
           </p>
         </div>
-
         <div className="flex flex-col sm:flex-row items-center sm:items-start flex-wrap gap-6 w-full justify-center">
           <ul className="flex flex-col gap-4 min-w-[200px] max-w-[250px]">
             <li className="font-bold text-[14px] text-primary text-center lg:text-start">
               Հիմնադրամ
             </li>
             <hr className="w-[220px] mx-auto lg:mx-0" />
-            {firstSection.map((el) => (
+            {firstSection?.map((el) => (
               <li
-                key={el.name}
+                key={el.id}
                 className="text-xs font-medium text-center lg:text-start"
               >
-                <Link href={`/${el.link}`}>{el.name}</Link>
+                <Link href={`/${el.url}`}>{el.label}</Link>
               </li>
             ))}
           </ul>
@@ -75,10 +71,10 @@ export const Footer: React.FC<Props> = ({ className }) => {
             <hr className="w-[220px] mx-auto lg:mx-0" />
             {secondSection.map((el) => (
               <li
-                key={el.name}
+                key={el.id}
                 className="text-xs font-medium text-center lg:text-start"
               >
-                <Link href={`/${el.link}`}>{el.name}</Link>
+                <Link href={`/${el.url}`}>{el.label}</Link>
               </li>
             ))}
           </ul>
@@ -120,8 +116,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
             </li>
             <hr className="w-[220px] mx-auto lg:mx-0" />
             <li className="text-xs font-medium text-center lg:text-start">
-              Ստացեք հիմնադրամի նորությունները և նախագծի կարևոր թարմացումները
-              էլ-փոստով
+              {data?.["last-text"]}
             </li>
             <div className="flex items-center gap-4 border-1 rounded-2xl p-1 px-2 bg-white">
               <Mail color="#00000080" />
@@ -132,7 +127,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
               />
             </div>
             <span>
-              <Button className="w-full">ԲԱԺԱՆՈՐԴԱԳՐՎԵԼ</Button>
+              <Button className="w-full">{data?.["button-text"]}</Button>
             </span>
           </ul>
         </div>
@@ -140,9 +135,8 @@ export const Footer: React.FC<Props> = ({ className }) => {
 
       <hr className="w-full" />
       <div className="flex items-center justify-center gap-1 py-6">
-        <Copyright size={12} />
         <p className="text-xs text-center font-medium">
-          «Ինքնություն» Հիմնադրամ, {new Date().getFullYear()}
+          {data?.["bottom-text"]}
         </p>
       </div>
     </div>
