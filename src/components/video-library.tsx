@@ -19,6 +19,7 @@ interface Props {
 
 export const VideoLibrary: React.FC<Props> = ({ className }) => {
   const { data } = useVideoPosts();
+  console.log(data);
 
   return (
     <div className={cn("max-w-[1920px] mx-auto", className)}>

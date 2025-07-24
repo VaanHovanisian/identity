@@ -25,10 +25,20 @@ export const HeaderImg: React.FC<Props> = (props) => {
   return (
     <div
       className={cn(
-        `h-screen mx-auto md:bg-[url(${data?.["image"]?.url})] bg-[url(${data?.["image-mobile"]?.url})] bg-cover bg-center mb-[10%] flex flex-col`,
+        `relative h-screen mx-auto mb-[10%] flex flex-col`,
         className
       )}
     >
+      <img
+        className="absolute md:hidden -z-1 block inset-0 w-full h-full object-cover"
+        src={data?.["image-mobile"]?.url}
+        alt=""
+      />
+      <img
+        className="absolute max-md:hidden -z-1 inset-0 w-full h-full object-cover"
+        src={data?.["image"]?.url}
+        alt=""
+      />
       <div className="flex flex-1 items-center justify-center">
         <div className="flex flex-col items-center mx-auto max-w-[781px] gap-6">
           <h1 className="font-bebas text-[clamp(1.875rem,-0.7813rem+8.5vw,4rem)] text-white leading-[125%] text-center">
@@ -40,7 +50,7 @@ export const HeaderImg: React.FC<Props> = (props) => {
               className="group cursor-pointer hover:scale-110 flex items-center text-[20px] sm:text-2xl font-medium font-montserrat p-9"
             >
               <Play className="text-[#781214] group-hover:text-white mb-[1.5px]" />
-              {data?.["button-text"]}
+              {data?.["buttonText"]}
             </Button>
           </ModalVideo>
         </div>

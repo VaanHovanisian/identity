@@ -65,7 +65,7 @@ export const FoundationAboutUs: React.FC<Props> = ({ className }) => {
       )}
     >
       <div className="hidden xl:flex items-start">
-        <ul className="sticky top-27 flex flex-col gap-4 text-start border-r border-border">
+        <ul className="sticky top-33 flex flex-col gap-4 text-start border-r border-border">
           {categories.map((item) => (
             <li
               key={item.id}

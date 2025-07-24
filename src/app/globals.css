@@ -1,8 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 105px;
 }
+
 @custom-variant dark (&:is(.dark *));
 
 .swiper-button-prev::after,
@@ -140,6 +143,7 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

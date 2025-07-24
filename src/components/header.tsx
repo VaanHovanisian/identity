@@ -26,7 +26,6 @@ interface Props {
 export const Header: React.FC<Props> = ({ className }) => {
   const { data: headerData } = useSWR(ApiRouts.HEADER, fetcher);
   const data = headerData ?? {};
-  console.log(data);
 
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -82,10 +81,10 @@ export const Header: React.FC<Props> = ({ className }) => {
                 <ChevronDown className="text-inherit" strokeWidth={2} />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {data?.["tesadaran-links"]?.map((el: any) => (
+                {data?.videoGallery?.map((el: any) => (
                   <DropdownMenuItem key={el.id}>
-                    <Link className="w-full" href={el.url}>
-                      {el.label}
+                    <Link className="w-full" href={el.link}>
+                      {el.title}
                     </Link>
                   </DropdownMenuItem>
                 ))}
@@ -124,10 +123,10 @@ export const Header: React.FC<Props> = ({ className }) => {
                       {t("navItem1")} <ChevronDown size={16} />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      {data?.["tesadaran-links"]?.map((el: any) => (
+                      {data?.videoGallery?.map((el: any) => (
                         <DropdownMenuItem key={el.id}>
-                          <Link href={el.url} className="text-inherit w-full">
-                            {el.label}
+                          <Link href={el.link} className="text-inherit w-full">
+                            {el.title}
                           </Link>
                         </DropdownMenuItem>
                       ))}
