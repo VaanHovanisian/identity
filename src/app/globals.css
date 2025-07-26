@@ -26,6 +26,12 @@ html {
   border-radius: 4px;
 }
 
+.foundation-first-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

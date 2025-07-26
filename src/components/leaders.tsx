@@ -48,10 +48,7 @@ export const Leaders: React.FC<Props> = ({ className }) => {
       title: "Խորհրդի անդամ",
       desc: "Ֆրանսիայում «Արմատ» կրթօջախի հիմնադիր",
     },
-  ];
-
-  const secondLeaders = [
-    {
+     {
       img: "/lead4.png",
       name: "Հասմիկ Բաղդասարյան",
       title: "Խորհրդի անդամ",
@@ -80,42 +77,16 @@ export const Leaders: React.FC<Props> = ({ className }) => {
       </FadeInSection>
 
       <FadeInSection>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid foundation-first-grid gap-6">
           {firstLeaders.map((person, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center gap-4 text-center"
+              className="flex flex-col  items-center gap-4 text-center"
             >
               <img
                 className="max-w-[135px] w-full"
                 src={person.img}
                 alt={`lead${idx + 1}`}
-              />
-              <div className="flex flex-col gap-2">
-                <span className="text-primary font-bold text-xs leading-[120%] tracking-[0.03em]">
-                  {person.name}
-                </span>
-                <span className="text-[11px] text-primary">{person.title}</span>
-              </div>
-              <span className="max-w-[180px] w-full text-[11px] leading-[113%] text-[#191717]">
-                {person.desc}
-              </span>
-            </div>
-          ))}
-        </div>
-      </FadeInSection>
-
-      <FadeInSection>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-14">
-          {secondLeaders.map((person, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center gap-4 text-center"
-            >
-              <img
-                className="max-w-[135px] w-full"
-                src={person.img}
-                alt={`lead${idx + 4}`}
               />
               <div className="flex flex-col gap-2">
                 <span className="text-primary font-bold text-xs leading-[120%] tracking-[0.03em]">
